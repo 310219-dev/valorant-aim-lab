@@ -16,7 +16,7 @@
 - **部署：** `.github/workflows/pages.yml` 已建立；Pages source 已設為 GitHub Actions，最新 workflow 已成功。
 - **GitHub：** 公開 repository [310219-dev/valorant-aim-lab](https://github.com/310219-dev/valorant-aim-lab) 已包含首頁、README、workflow 與本計畫。
 - **Pages：** [角度實驗室](https://310219-dev.github.io/valorant-aim-lab/) 已公開並確認可載入。
-- **本機 Git：** 本機 `main` 有 commits，遠端 repository 由網頁提交建立；尚未設定 remote 或同步歷史。
+- **本機 Git：** `main` 已追蹤 `origin/main`，本機與遠端歷史同步；原本的本機提交保存在 `local-pre-github-sync` 分支。
 
 ## 已完成
 
@@ -26,13 +26,10 @@
 - [x] 將首頁與 README 上傳到遠端 `main`，README 已附線上試玩網址。
 - [x] 建立 GitHub Actions Pages workflow，並確認部署成功。
 - [x] 將願景、範圍、狀態與路線圖納入本檔。
+- [x] 設定本機 `origin`，同步本機 `main` 與遠端 `origin/main`。
 - [x] 記錄初始「chat only」偏好及後續轉為網頁版的決策。
 
 ## 剩餘路線圖
-
-### Git 同步
-
-- [ ] 設定本機 `origin`，同步本機與遠端 Git 歷史，讓後續本機推送可直接使用。
 
 ### 訓練體驗迭代
 
