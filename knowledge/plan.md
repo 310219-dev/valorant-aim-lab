@@ -12,7 +12,7 @@
 
 ## 目前狀態
 
-- **原型：** `index.html` 已完成，包含定點急停、轉點反應、預瞄角度三種模式與基本數據面板。
+- **原型：** `index.html` 已完成，包含定點急停、轉點反應、預瞄角度三種模式、WASD 主觀移動、急停判定、靜止靶停留時間設定與基本數據面板。
 - **部署：** `.github/workflows/pages.yml` 已建立；Pages source 已設為 GitHub Actions，最新 workflow 已成功。
 - **GitHub：** 公開 repository [310219-dev/valorant-aim-lab](https://github.com/310219-dev/valorant-aim-lab) 已包含首頁、README、workflow 與本計畫。
 - **Pages：** [角度實驗室](https://310219-dev.github.io/valorant-aim-lab/) 已公開並確認可載入。
@@ -28,6 +28,8 @@
 - [x] 將願景、範圍、狀態與路線圖納入本檔。
 - [x] 設定本機 `origin`，同步本機 `main` 與遠端 `origin/main`。
 - [x] 記錄初始「chat only」偏好及後續轉為網頁版的決策。
+- [x] 加入 WASD 主觀移動與慣性急停；移動中射擊列為未命中。
+- [x] 加入靜止靶停留時間選項（0.8 至 5 秒），讓玩家自行調整消失頻率。
 
 ## 剩餘路線圖
 
