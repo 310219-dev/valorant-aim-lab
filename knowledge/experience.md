@@ -45,7 +45,7 @@
 - **觀察：** 兩次 GitHub Pages workflow 都在 artifact 上傳成功後約 0.3 秒內，由 `deploy-pages` 查到 0 個 `github-pages` artifact；事後查同一 run 的 artifacts API 已能看到檔案，符合可見性延遲。
 - **處理：** 在部署步驟前使用具有 `actions: read` 的 token 輪詢當前 run 的 artifact 清單，檔案可讀後才執行部署；等待 30 秒仍不可讀時明確失敗。
 - **適用範圍：** 上傳 artifact 與消費 artifact 分屬不同 Actions 步驟／服務、且讀取端可能早於索引更新的流程。
-- **限制與後續：** 輪詢增加最多 30 秒部署等待；最新 workflow 成功後再確認此處理是否穩定有效。
+- **驗證與限制：** 加入輪詢後的 run 已通過 artifact 可見性檢查並成功部署；輪詢最多增加 30 秒等待，仍需觀察後續 run 確認不同時段的穩定性。
 
 
 ## 暫停時保留場景座標系
