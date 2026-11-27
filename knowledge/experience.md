@@ -45,7 +45,7 @@
 - **觀察：** `deploy-pages` 透過 Actions Results artifact service 列舉檔案；GitHub REST artifacts API 已回報可見時，Pages service 仍可能回報 0 個 artifact。
 - **處理：** 在部署步驟前使用 `actions: read` 輪詢當前 run 的 artifact 清單，確認可讀後再等 8 秒，給 Pages service 同步時間；等待 30 秒仍不可讀時明確失敗。
 - **適用範圍：** 上傳 artifact 與消費 artifact 分屬不同 Actions 步驟／服務、且讀取端可能早於索引更新的流程。
-- **驗證與限制：** 單靠 REST 輪詢已有一次成功和一次失敗；加入 8 秒同步等待後需再驗證。最大額外等待約 38 秒。
+- **驗證與限制：** 加入 8 秒同步等待後，run `45934112673` 的 Deploy site 成功；總等待最多約 38 秒，仍需觀察後續 run 確認穩定性。
 
 
 ## 暫停時保留場景座標系
