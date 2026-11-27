@@ -12,7 +12,7 @@
 
 ## 目前狀態
 
-- **最新迭代：** 切換模式或重設會清除舊回合數據並顯示符合當前模式的提示；暫停續練保留目標、倒數與場景位移。
+- **最新迭代：** Pages 部署前加入 artifact 可見性輪詢，處理上傳成功後短時間查不到 artifact 的競態；模式切換與暫停續練狀態也已修正。
 
 - **原型：** `index.html` 已完成，包含定點急停、轉點反應、預瞄角度三種模式、WASD 主觀移動、急停判定、靜止靶停留時間設定與基本數據面板。
 - **部署：** `.github/workflows/pages.yml` 已建立；Pages source 已設為 GitHub Actions，最新 workflow 已成功。
@@ -27,6 +27,7 @@
 - [x] 建立公開 GitHub repository。
 - [x] 將首頁與 README 上傳到遠端 `main`，README 已附線上試玩網址。
 - [x] 建立 GitHub Actions Pages workflow，並確認部署成功。
+- [x] Pages workflow 在部署前輪詢 `github-pages` artifact 可見性，避免上傳完成後索引延遲導致部署失敗。
 - [x] 將願景、範圍、狀態與路線圖納入本檔。
 - [x] 設定本機 `origin`，同步本機 `main` 與遠端 `origin/main`。
 - [x] 記錄初始「chat only」偏好及後續轉為網頁版的決策。

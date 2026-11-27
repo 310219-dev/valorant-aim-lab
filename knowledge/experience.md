@@ -40,12 +40,12 @@
 - **限制與後續：** 瀏覽器分頁進入背景時仍由瀏覽器節流計時；若需要跨分頁或關閉後恢復，應改用時間戳與持久化快照。
 
 
-## Pages artifact 上傳成功仍可能遇到部署讀取競態
+## Pages 部署前確認 artifact 已可讀
 
-- **觀察：** GitHub Pages workflow 的 artifact 上傳步驟成功後，`deploy-pages` 偶爾回報同一個 run 找不到 `github-pages` artifact。
-- **處理：** 先檢查 workflow jobs 與完整部署記錄，區分建置／上傳失敗和部署端暫時讀取不到 artifact；目前透過整合工具重新執行 run 遭遇 403 權限限制，因此以新的 `main` 推送觸發一次獨立部署來確認。
-- **適用範圍：** GitHub Pages 使用 `upload-pages-artifact`／`deploy-pages` 的工作流程；出現「artifact not found」時先核對上傳步驟及 API 回應，不要先改網站內容或 artifact 名稱。
-- **限制與後續：** 只有一次失敗樣本，尚未確認為平台短暫狀況；若再次發生，應比較不同 run，並由有 Actions 寫入權限的帳戶重跑失敗工作。
+- **觀察：** 兩次 GitHub Pages workflow 都在 artifact 上傳成功後約 0.3 秒內，由 `deploy-pages` 查到 0 個 `github-pages` artifact；事後查同一 run 的 artifacts API 已能看到檔案，符合可見性延遲。
+- **處理：** 在部署步驟前使用具有 `actions: read` 的 token 輪詢當前 run 的 artifact 清單，檔案可讀後才執行部署；等待 30 秒仍不可讀時明確失敗。
+- **適用範圍：** 上傳 artifact 與消費 artifact 分屬不同 Actions 步驟／服務、且讀取端可能早於索引更新的流程。
+- **限制與後續：** 輪詢增加最多 30 秒部署等待；最新 workflow 成功後再確認此處理是否穩定有效。
 
 
 ## 暫停時保留場景座標系
