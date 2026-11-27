@@ -37,7 +37,8 @@ jobs:
           for attempt in $(seq 1 15); do
             count=$(gh api "repos/${GITHUB_REPOSITORY}/actions/runs/${GITHUB_RUN_ID}/artifacts" --jq '[.artifacts[] | select(.name == "github-pages" and .expired == false)] | length') || count=0
             if [ "$count" -gt 0 ]; then
-              echo "Pages artifact is available."
+              echo "Pages artifact is visible through the Actions API; waiting for the Pages artifact service to catch up."
+              sleep 8
               exit 0
             fi
             echo "Pages artifact is not visible yet (attempt ${attempt}/15)."

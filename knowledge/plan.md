@@ -12,7 +12,7 @@
 
 ## 目前狀態
 
-- **最新迭代：** 偏好設定會保存在目前瀏覽器；目標數變更會保留當前模式提示；Pages 部署競態已修正。
+- **最新迭代：** 偏好設定保存與模式提示修正已完成；Pages 部署正在加入跨 artifact service 的同步等待，尚待部署驗證。
 
 - **原型：** `index.html` 已完成，包含定點急停、轉點反應、預瞄角度三種模式、WASD 主觀移動、急停判定、靜止靶停留時間設定與基本數據面板。
 - **部署：** `.github/workflows/pages.yml` 已建立；Pages source 已設為 GitHub Actions，最新 workflow 已成功。
